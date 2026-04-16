@@ -14,17 +14,23 @@ pipeline{
 		}
 		stage('Build'){
 			steps{
-				sh './gradlew build'
+				dir('app') {
+            sh '../gradlew build'
+        }
 			}
 		}
 		stage('Test'){
 			steps{
-				sh './gradlew test'
+				dir('app') {
+            sh '../gradlew build'
+        }
 			}
 		}
 		stage('Run Application'){
 			steps{
-				sh './gradlew run'
+				dir('app') {
+            sh '../gradlew build'
+        }
 			}
 		}
 	}
